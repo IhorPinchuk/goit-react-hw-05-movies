@@ -1,13 +1,14 @@
-import css from './homeGallery.module.css';
-import HomeGalleryItem from './homeGalleryItem/HomeGalleryItem';
+import GalleryItem from './galleryItem/GalleryItem';
+import css from './gallery.module.css';
 
-const HomeGallery = ({ trendMovies }) => {
+
+const Gallery = ({ movies }) => {
   return (
     <ul className={css.home_gallery}>
-      {trendMovies.map(({ id, poster_path, title, name }) => {
+      {movies.map(({ id, poster_path, title, name }) => {
         const image = `https://image.tmdb.org/t/p/original/${poster_path}`;
         return (
-          <HomeGalleryItem
+          <GalleryItem
             key={id}
             id={id}
             image={image}
@@ -20,4 +21,4 @@ const HomeGallery = ({ trendMovies }) => {
   );
 };
 
-export default HomeGallery;
+export default Gallery;

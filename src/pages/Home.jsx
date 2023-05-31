@@ -1,6 +1,8 @@
+
 import { useState, useEffect } from 'react';
 import { fetchTrendMovies } from 'services/api';
-import HomeGallery from 'components/homeGallery/HomeGallery';
+import Gallery from 'components/gallery/Gallery';
+
 
 const Home = () => {
   const [trendMovies, setTrendMovies] = useState([]);
@@ -12,7 +14,7 @@ const Home = () => {
         console.log(error);
       });
   }, []);
-  return <HomeGallery trendMovies={trendMovies} />;
+  return <Gallery movies={trendMovies} />;
 };
 
 export default Home;

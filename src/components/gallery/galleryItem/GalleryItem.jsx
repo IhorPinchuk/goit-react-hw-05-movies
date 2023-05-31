@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import css from './homeGalleryItem.module.css';
+import css from './galleryItem.module.css';
 
-const HomeGalleryItem = ({ id, image, title, name }) => {
+const GalleryItem = ({ id, image, title, name }) => {
   return (
     <li className={css.home_gallery__item}>
       <Link
@@ -17,4 +17,4 @@ const HomeGalleryItem = ({ id, image, title, name }) => {
   );
 };
 
-export default HomeGalleryItem;
+export default GalleryItem;

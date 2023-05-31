@@ -12,3 +12,13 @@ export const fetchTrendMovies = async () => {
     })
     .catch(error => console.log(error));
 }
+
+export const fetchSearchMovies = async (searchName) => {
+  const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${searchName}`;
+  return await axios
+    .get(url)
+    .then(response => {
+      return response.data.results;
+    })
+    .catch(error => console.log(error));
+}
