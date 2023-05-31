@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
 import css from './galleryItem.module.css';
 
-const GalleryItem = ({ id, image, title, name }) => {
+const GalleryItem = ({ id, image, title, name, location }) => {
+  
   return (
-    <li className={css.home_gallery__item}>
+    <li className={css.gallery__item}>
       <Link
         to={`/movies/${id}`}
-        className={css.home_gallery__link}
+        className={css.gallery__link}
         image={image}
         title={title}
+        state={location}
       >
-        <img className={css.home_gallery__image} src={image} alt={title} />
-        <p className={css.home_gallery__title}>{title ?? name}</p>
+        <img className={css.gallery__image} src={image} alt={title} />
+        <p className={css.gallery__title}>{title ?? name}</p>
       </Link>
     </li>
   );

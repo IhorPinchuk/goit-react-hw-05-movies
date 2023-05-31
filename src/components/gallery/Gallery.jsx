@@ -1,10 +1,9 @@
 import GalleryItem from './galleryItem/GalleryItem';
 import css from './gallery.module.css';
 
-
-const Gallery = ({ movies }) => {
+const Gallery = ({ movies, location }) => {
   return (
-    <ul className={css.home_gallery}>
+    <ul className={css.gallery}>
       {movies.map(({ id, poster_path, title, name }) => {
         const image = `https://image.tmdb.org/t/p/original/${poster_path}`;
         return (
@@ -14,6 +13,7 @@ const Gallery = ({ movies }) => {
             image={image}
             title={title}
             name={name}
+            location={location}
           />
         );
       })}

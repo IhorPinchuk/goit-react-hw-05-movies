@@ -1,0 +1,17 @@
+.btn_back {
+  margin-left: 20px;
+}
+
+.movie_details__wrapper__card {
+  display: flex;
+}
+
+.movie_details__img {
+  width: 200px;
+  height: 100%;
+  margin: 20px;
+}
+
+.information_text {
+  margin: 20px;
+}
