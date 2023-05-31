@@ -1,7 +1,8 @@
 import GalleryItem from './galleryItem/GalleryItem';
+import propTypes from 'prop-types';
 import css from './gallery.module.css';
 
-const Gallery = ({ movies, location }) => {
+const Gallery = ({ movies }) => {
   return (
     <ul className={css.gallery}>
       {movies.map(({ id, poster_path, title, name }) => {
@@ -13,12 +14,15 @@ const Gallery = ({ movies, location }) => {
             image={image}
             title={title}
             name={name}
-            location={location}
           />
         );
       })}
     </ul>
   );
+};
+
+Gallery.propTypes = {
+  movies: propTypes.arrayOf(propTypes.object).isRequired,
 };
 
 export default Gallery;

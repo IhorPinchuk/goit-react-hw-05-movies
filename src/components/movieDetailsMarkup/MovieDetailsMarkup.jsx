@@ -1,11 +1,14 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import propTypes from 'prop-types';
 import css from './movieDetailsMarkup.module.css';
+import { Suspense, useRef } from 'react';
 
-const MovieDetailsMarkup = ({ movieDetails, image, locationDetails }) => {
- 
+const MovieDetailsMarkup = ({ movieDetails, image }) => {
+  const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? '/');
   return (
     <>
-      <Link to={locationDetails.state }>
+      <Link to={backLinkLocationRef.current}>
         <button className={css.btn_back} type="button">
           Go back
         </button>
@@ -43,11 +46,18 @@ const MovieDetailsMarkup = ({ movieDetails, image, locationDetails }) => {
         </li>
         <li>
           <Link to="reviews">Reviews</Link>
-        </li>        
+        </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </>
   );
+};
+
+MovieDetailsMarkup.propTypes = {
+  movieDetails: propTypes.object.isRequired,
+  image: propTypes.string.isRequired,
 };
 
 export default MovieDetailsMarkup;

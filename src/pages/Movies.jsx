@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import SearchbarMovies from 'components/searchbarMovies/SearchbarMovies';
 import { fetchSearchMovies } from 'services/api';
 import Gallery from 'components/gallery/Gallery';
 
 const Movies = () => {
   const [searchMovies, setSearchMovies] = useState([]);
-    const [searchParams, setSearchParams] = useSearchParams();
-    const locationMovies = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     if (!searchParams.get('query')) {
@@ -30,7 +29,7 @@ const Movies = () => {
     <>
       <SearchbarMovies onSubmit={handleFormSubmit} />
 
-          <Gallery movies={searchMovies} location={locationMovies } />
+      <Gallery movies={searchMovies} />
 
       <ToastContainer
         position="bottom-center"
